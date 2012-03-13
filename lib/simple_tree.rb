@@ -1,11 +1,12 @@
 require "simple_tree/version"
+require "simple_tree/railtie" if defined? Rails
 
 module SimpleTree
   def self.included(base)
     base.extend(ClassMethods)
   end
   module ClassMethods
-    def acts_as_tree(options = {})
+    def acts_as_simple_tree(options = {})
       configuration = { :foreign_key => "parent_id", :order => nil, :counter_cache => nil }
       configuration.update(options) if options.is_a?(Hash)
 
