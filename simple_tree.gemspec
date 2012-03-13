@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["yinghai"]
   s.email       = ["yinghai.zhao@mosaic.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{simple tree gem}
+  s.description = %q{simple tree gem}
 
   s.rubyforge_project = "simple_tree"
 
