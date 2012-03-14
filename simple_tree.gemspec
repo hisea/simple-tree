@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = SimpleTree::VERSION
   s.authors     = ["yinghai"]
   s.email       = ["yinghai.zhao@mosaic.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/mosaicxm/simple-tree"
   s.summary     = %q{simple tree gem}
   s.description = %q{simple tree gem}
 

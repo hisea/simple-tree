@@ -33,6 +33,13 @@ describe SimpleTree do
       @gc1a.ancestors.should == [@c1,@root]
     end
   end
+
+   describe "#self_and_ancestors" do
+    it "should return all ancestors including self" do
+      @gc1a.self_and_ancestors.should == [@gc1a,@c1,@root]
+    end
+  end
+
   describe "#root" do
     it "should return root for descendants" do
       @gc1a.root.should == @root
@@ -62,6 +69,30 @@ describe SimpleTree do
   describe '#descendants' do
     it "should return all descendants" do
       @root.descendants.should == [@c1,@c2,@gc1a,@gc2a]
+    end
+  end
+
+  describe '#self_and_descendants' do
+    it "should return all descendants including self" do
+      @root.self_and_descendants.should == [@root,@c1,@c2,@gc1a,@gc2a]
+    end
+  end
+
+  describe '#root?' do
+    it "should return true for root" do
+      @root.root?.should be_true
+    end
+    it "should return false for child" do
+      @c1.root?.should be_false
+    end
+  end
+
+  describe '#child?' do
+    it "should return true for root" do
+      @root.child?.should be_false
+    end
+    it "should return false for child" do
+      @c1.child?.should be_true
     end
   end
 

@@ -27,6 +27,11 @@ module SimpleTree
       nodes
     end
 
+    def self_and_ancestors
+      nodes = [] << self
+      nodes += self.ancestors
+    end
+
     # Returns the root node of the tree.
     def root
       node = self
@@ -34,6 +39,13 @@ module SimpleTree
       node
     end
 
+    def root?
+      self.root == self
+    end
+
+    def child?
+      self.parent != nil
+    end
     # Returns all siblings of the current node.
     #
     #   subchild1.siblings # => [subchild2]
@@ -55,9 +67,15 @@ module SimpleTree
       nodes
     end
 
+    def self_and_descendants
+      node = [] << self
+      node += self.descendants 
+    end
+
     def move_to_child_of(parent)
       self.parent = parent
     end
+
 
   end
 end
