@@ -22,7 +22,7 @@ module SimpleTree
     #
     #   subchild1.ancestors # => [child1, root]
     def ancestors
-      node, nodes = self, []
+      node, nodes = self,[]
       nodes << node = node.parent while node.parent
       nodes
     end
@@ -45,7 +45,18 @@ module SimpleTree
     #
     #   subchild1.self_and_siblings # => [subchild1, subchild2]
     def self_and_siblings
-      parent ? parent.children : self.class.roots
+      parent ? parent.children : []
+    end
+
+    def descendants
+      return [] if children.empty?
+      nodes = children
+      children.each {|c| nodes + c.descendants}
+      nodes
+    end
+
+    def move_to_child_of(parent)
+      self.parent = parent
     end
 
   end
