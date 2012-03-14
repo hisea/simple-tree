@@ -51,7 +51,7 @@ module SimpleTree
     def descendants
       return [] if children.empty?
       nodes = children
-      children.each {|c| nodes + c.descendants}
+      children.each {|c| nodes = nodes + c.descendants}
       nodes
     end
 
